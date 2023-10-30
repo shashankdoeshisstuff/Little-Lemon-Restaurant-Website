@@ -1,0 +1,44 @@
+.menu-main {
+    position: relative;
+}
+
+.menu-top {
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.menu-head {
+    background: var(--primaryColor);
+    margin-bottom: 40px;
+}
+
+.menu-section {
+    justify-content: center;
+}
+
+.menuPart {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.menuPartTitle {
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 740px) {
+    .menu-top {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+    }
+    .heroDetails {
+        display: grid;
+        height: 100%;
+    }
+    .menu-main-image {
+        margin-bottom: 0;
+    }
+    .menu-head {
+        margin-bottom: 0px;
+    }
+    
+}

@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Antony Clifton",
+        "image": "testimonial-images/person1.jpg",
+        "rating": "4",
+        "review": "The food was decent, but waitress are hot here strongly suggest the place."
+    },
+    {
+        "name": "Maria Sanchez",
+        "image": "testimonial-images/person4.jpg",
+        "rating": "3",
+        "review": "My kids like the place they love the food here, they prefer to eat here than my home recipes., The food is good but not better than what my magical hands cooks."
+    },
+    {
+        "name": "Tamika Jackson",
+        "image": "testimonial-images/person3.jpg",
+        "rating": "2",
+        "review": "I prefer this place more than any other restaurant than I have visited in this area the food is good here."
+    },
+    {
+        "name": "Brandon Ming",
+        "image": "testimonial-images/person2.jpg",
+        "rating": "5",
+        "review": "When I needed break from our insane Asian dishes this place is like Heaven to in and I love every moment that l get without eating Asian food."
+    }
+]

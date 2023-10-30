@@ -1,0 +1,63 @@
+.aboutUsSection {
+    background: var(--primaryColor);
+    margin-bottom:80px;
+}
+
+.bigBold {
+    font-size: 56px;
+    font-weight:500;
+}
+
+.aboutThirdPara {
+    text-align: right;
+}
+
+.aboutTiming {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+}
+.about-us-timing{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.about-timing {
+    padding-bottom: 6px;
+}
+
+/* about second section  Images*/
+
+.aboutSecondImage {
+    float: left;
+    width: 520px;
+    margin: 0 40px 20px 0;
+}
+
+.aboutThirdImage {
+    float: right;
+    width: 520px;
+    margin: 0 0 20px 40px;
+}
+
+iframe {
+    width: 1024px;
+}
+
+/* media queries */
+@media screen and (max-width: 1064px) {
+    iframe {
+        width: 580px;
+    }
+}
+@media screen and (max-width: 620px) {
+    iframe {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .aboutSecondImage, .aboutThirdImage {
+        width: 100%;
+    }
+}

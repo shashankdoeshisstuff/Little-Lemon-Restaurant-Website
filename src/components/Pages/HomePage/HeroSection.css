@@ -1,0 +1,7 @@
+.hero {
+    margin-bottom: 40px;
+}
+
+.yellowBorderBtn {
+    border: 4px solid var(--secondaryColor);
+}

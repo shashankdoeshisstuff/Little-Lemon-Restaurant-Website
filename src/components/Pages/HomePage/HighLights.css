@@ -1,0 +1,24 @@
+.highlights {
+    grid-template-rows: auto auto;
+}
+.highlightsHead {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+/* extras */
+.headText {
+    color: var(--primaryColor);
+}
+
+.grdItGoLeft {
+    justify-self: start;
+}
+.grdItGoRight {
+    justify-self: end;
+}

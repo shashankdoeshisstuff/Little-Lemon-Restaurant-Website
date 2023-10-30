@@ -1,0 +1,9 @@
+.headerContainer {
+    grid-template-columns: auto auto;
+}
+
+.headerImg {
+    max-width: 80%;
+    min-width: 180px;
+    width: auto/2;
+}

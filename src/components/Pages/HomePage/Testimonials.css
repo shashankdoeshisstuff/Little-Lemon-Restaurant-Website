@@ -1,0 +1,34 @@
+.testimonialSection {
+    background: var(--primaryColor);
+}
+
+.testimonials {
+    grid-template-rows: auto auto;
+}
+
+.TestimonialsHeading {
+    align-items: center;
+    color: var(--secondaryColor);
+}
+
+.TestimonialsList {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+}
+
+@media screen and (max-width: 940px) {
+    .TestimonialsList {
+        grid-template-columns: auto auto auto;
+    }
+}
+@media screen and (max-width: 740px) {
+    .TestimonialsList {
+        grid-template-columns: auto auto;
+    }
+}
+@media screen and (max-width: 520px) {
+    .TestimonialsList {
+        grid-template-columns: auto;
+    }
+}

@@ -1,0 +1,52 @@
+.res-container{
+    justify-content: center;
+}
+
+.res-heading-sec{
+    background: var(--primaryColor);
+}
+
+.res-heading {
+    text-align: center;
+}
+
+.res-form{
+    display: grid;
+    gap: 40px;
+}
+
+.res-part{
+    display: grid;
+    gap: 10px;
+}
+
+.res-text{
+    font-family: var(--karla);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--primaryColor);
+
+}
+
+.res-input {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: var(--karla);
+    font-size: 16px;
+    color: var(--primaryColor);
+    height: 35px;
+    border: 1px solid var(--primaryColor);
+    border-radius: 8px;
+    background: none;
+}
+.res-input:focus {
+    outline: 2px solid var(--primaryColor);
+}
+
+input{
+    width: 330px;
+}
+
+.res-btn {
+    width: 350px;
+}

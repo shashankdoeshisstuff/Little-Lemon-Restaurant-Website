@@ -1,0 +1,146 @@
+[
+    {
+        "dish-name":"Greek Salad",
+        "dish-image":"menu-images/greek-salad.jpg",
+        "dish-price":"12.99",
+        "category":"Entrees",
+        "special":"true",
+        "dish-details":"The famous greek salad of crispy lettuce, peppers, olives, and Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
+    },
+    {
+        "dish-name":"Bruschetta",
+        "dish-image":"menu-images/brushetta.webp",
+        "dish-price":"5.99",
+        "category":"Appetizers",
+        "special":"true",
+        "dish-details":"Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. It's a great appetizer to start with!"
+    },
+    {
+        "dish-name":"Lemon Dessert",
+        "dish-image":"menu-images/lemon-dessert.jpg",
+        "dish-price":"5.00",
+        "category":"Desserts",
+        "special":"true",
+        "dish-details":"This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined. This is perfect for a light dessert!"
+    },
+    {
+        "dish-name":"Tomato Soup",
+        "dish-image":"menu-images/soupapp.webp",
+        "dish-price":"7.99",
+        "category":"Appetizers",
+        "special":"false",
+        "dish-details":"Our Tomato soup is a vibrant and comforting dish that captures the essence of Mediterranean flavors. This exquisite creation is crafted with a blend of sun-kissed tomatoes & aromatic herbs."
+     },
+     {
+        "dish-name":"Mediterranean Platter",
+        "dish-image":"menu-images/platterapp.webp",
+        "dish-price":"13.99",
+        "category":"Appetizers",
+        "special":"false",
+        "dish-details":"Our Mediterranean Platter combines a tantalizing blend of fresh grapes, crisp crackers, velvety hummus, succulent sausage, and juicy apples to create a harmonious culinary experience."
+     },
+     {
+        "dish-name":"Salmon Fillet",
+        "dish-image":"menu-images/salmondinner.webp",
+        "dish-price":"15.99",
+        "category":"Entrees",
+        "special":"false",
+        "dish-details":"The salmon fillet is expertly seasoned with Mediterranean spices, such as a blend of aromatic herbs, tangy lemon zest, and a hint of garlic. This perfect combination infuses the fish with layers of depth and complexity."
+     },
+     {
+        "dish-name":"Pork & Veg",
+        "dish-image":"menu-images/porkdinner.webp",
+        "dish-price":"13.99",
+        "category":"Entrees",
+        "special":"false",
+        "dish-details":"This delightful dish showcases the flavors of pork infused with the vibrant Mediterranean trio of tomatoes, onions, and cilantro."
+     },
+     {
+        "dish-name":"Chocolate Truffles",
+        "dish-image":"menu-images/truffledes.webp",
+        "dish-price":"8.99",
+        "category":"Desserts",
+        "special":"false",
+        "dish-details":"Indulge in a decadent journey of chocolate bliss with our exquisite Chocolate Truffles dessert, a heavenly creation that adds a touch of Mediterranean flair to this classic confection."
+     },
+     {
+        "dish-name":"Caramel Ice Cream",
+        "dish-image":"menu-images/icecreamdes.webp",
+        "dish-price":"6.99",
+        "category":"Desserts",
+        "special":"true",
+        "dish-details":"Crafted with utmost care and attention, our Caramel Ice Cream begins with a luscious, creamy base that is made using the finest ingredients. We start by simmering sweetened milk and cream until they reach the perfect consistency."
+     },
+     {
+      "dish-name":"Chicken Gnocchi Soup",
+      "dish-image":"menu-images/Gnocchi-Chicken-Soup-cropped.jpg",
+      "dish-price":"8.99",
+      "category":"Entrees",
+      "special":"false",
+      "dish-details":"Bite-sized, pillowy dumplings simmered gently in chicken stock are the epitome of comfort food. Throw in mushrooms, carrots, celery, onions, and a hint of thyme and rosemary for a nourishing, and delicious dinner."
+   },
+   {
+      "dish-name":"Greek Meatball Soup",
+      "dish-image":"menu-images/Greek-Meatball-Soup.jpg",
+      "dish-price":"19.99",
+      "category":"Entrees",
+      "special":"false",
+      "dish-details":"The lemony broth is hearty and comforting, and the juicy beef meatballs are packed with incredible herbaceous flavor. If you love Greek avgolemono soup then you'll love this gluten-free meatball soup recipe too."
+   },
+   {
+      "dish-name":"Beef Shawarma",
+      "dish-image":"menu-images/beef-shawarma-recipe.jpg",
+      "dish-price":"16.99",
+      "category":"Entrees",
+      "special":"false",
+      "dish-details":"Middle Eastern street food is basically heavily-marinated meat (or chicken), layered on a vertical rotisserie or spit where it is slow-roasted for days until perfectly tender and extra flavorful!"
+   },
+   {
+      "dish-name":"Joojeh Kabob",
+      "dish-image":"menu-images/joojeh-kebab.jpg",
+      "dish-price":"12.99",
+      "category":"Appetizers",
+      "special":"true",
+      "dish-details":"Joojeh Kabob, also spelled Jujeh Kabab, is the Persian version of the chicken kabob and one of Iran’s most delicious and popular dishes. A flavorful chicken marinade with saffron, turmeric, Greek yogurt, and lemon creates juicy, tender chicken loaded with flavor."
+   },
+   {
+      "dish-name":"Grilled Chicken Wings",
+      "dish-image":"menu-images/grilled-chicken-wings.jpg",
+      "dish-price":"9.99",
+      "category":"Appetizers",
+      "special":"true",
+      "dish-details":"The secret Mediterranean-style marinade + grilling tips guarantee maximum flavor in each bite! Serve them with cool tzatziki sauce or your favorite dip."
+   },
+   {
+      "dish-name":"Stuffed Grape Leaves",
+      "dish-image":"menu-images/Stuffed-Grape-Leaves.jpg",
+      "dish-price":"17.99",
+      "category":"Appetizers",
+      "special":"false",
+      "dish-details":"These flavor-packed grape leaves are stuffed with a tantalizing mixture of rice; meat; and loads of fresh herbs and warm spices, then cooked in a bright lemony broth."
+   },
+   {
+      "dish-name":"Lahmacun",
+      "dish-image":"menu-images/Turkish-Lahmacun.jpg",
+      "dish-price":"6.40",
+      "category":"Appetizers",
+      "special":"false",
+      "dish-details":"Crispy pizza topped with a flavor-packed mixture of minced meat with peppers, tomato, fresh herbs and earthy spices."
+   },
+   {
+      "dish-name":"Chicken Salad",
+      "dish-image":"menu-images/chicken-salad.jpg",
+      "dish-price":"10.49",
+      "category":"Appetizers",
+      "special":"true",
+      "dish-details":"This healthy chicken salad recipe is hearty, flavorful, and packs a nice fresh crunch. Thanks to rotisserie chicken it's so easy to make and just as easy to enjoy no matter what the day holds."
+   },
+   {
+      "dish-name":"Pork Chops",
+      "dish-image":"menu-images/Pan-Seared-Pork-Chops.jpg",
+      "dish-price":"14.99",
+      "category":"Appetizers",
+      "special":"false",
+      "dish-details":"Juicy pork chops, pan-seared in a cast-iron skillet and perfumed with bay leaf and fresh lemon. "
+   }
+]

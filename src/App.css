@@ -1,38 +1,154 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700;800&family=Markazi+Text:wght@400;500;600;700&display=swap');
+
+:root {
+    --primaryColor: #495E57;
+    --secondaryColor: #F4CE14;
+    --greyColor: #E3E3E3;
+    --karla: 'Karla', sans-serif;
+    --markazi: 'Markazi Text', serif;
+    --margin: 0 20px 0 20px;
+    --max-width: 1024px;
+}
+/* font-family: 'Karla', sans-serif;
+font-family: 'Markazi Text', serif; */
+
+/* Containers */
+.app {
+    display: flex;
+    flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.section {
+    display: flex;
+    justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+    width: var(--max-width);
+    padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.grid-container {
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.about-text-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* section background color */
+.primary-background {
+    background: var(--primaryColor);
+}
+
+/* Properties for text */
+h1 {
+    font-family: var(--markazi);
+    font-size: 56px;
+    font-weight: 400;
+    color: var(--secondaryColor);
+    margin: 0;
+}
+h2 {
+    color: var(--secondaryColor);
+    font-family: var(--markazi);
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--primaryColor);
+    margin: 0;
+}
+h3 {
+    color: var(--secondaryColor);
+    font-family: var(--markazi);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--primaryColor);
+    margin: 0;
+}
+p {
+    font-family: var(--karla);
+    font-size: 16px;
+    color: var(--primaryColor);
+    line-height: 24px;
+    padding-top: 20px;
+    margin: 0;
+}
+
+.leadText {
+    font-family: var(--karla);
+    font-size: 14pt;
+    font-weight: medium;
+}
+
+/* text color */
+.text-yellow{
+    color: var(--secondaryColor);
+}
+.text-white{
+    color: white;
+}
+.text-green {
+    color: var(--primaryColor);
+}
+
+/* articleCard Text properties */
+.cardTitle {
+    font-family: var(--karla);
+    font-size: 16pt;
+    font-weight: bold;
+    color: var(--primaryColor);
+}
+
+
+.highlightText {
+    font-family: var(--karla);
+    font-size: 16pt;
+    font-weight: medium;
+    color: var(--primaryColor);
+}
+
+.costText {
+    color: #FF5C00;
+    font-family: var(--karla);
+    font-size: 14pt;
+    font-weight: regular;
+}
+
+.deliveryBtn {
+    font-family: var(--karla);
+    font-size: 14pt;
+    font-weight: regular;
+    color: var(--primaryColor);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.articleCardPadding {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+/* Properties for button */
+.mainBtn {
+    border: none;
+    border-radius: 16px;
+    background: var(--secondaryColor);
+    color: var(--primaryColor);
+    width: 200px;
+    height: 50px;
+    font-family: var(--karla);
+    font-weight: bold;
+    font-size: 15pt;
+}
+.mainBtn:hover {
+    color: white;
+    background: var(--primaryColor);
+    transition: ease 0.2s;
 }
