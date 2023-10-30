@@ -19,15 +19,18 @@ const OrderOrCart = (type, dishId, Qty) => {
       "dish-quantity": Qty
     }
     
+    /* getting correct type */
+
     const userIndex = profile.findIndex((prof) => prof['id']  === id);
       const updatedUser = {...profile[userIndex]};
+      console.log(updatedUser)
       
       updatedUser[type].push(item);
 
       const updatedProfile = [...profile];
       updatedProfile[userIndex] = updatedUser;
 
-    axios.put(`http://localhost:3000/login-profiles/${id}`, updated)
+    axios.put(`http://localhost:3000/login-profiles/${id}`, updatedUser)
               .then(response => {
                   console.log("profile updated successfully")
               })
@@ -71,12 +74,12 @@ const OrderOrCart = (type, dishId, Qty) => {
                           value={itemQty}
                           onChange={(e) => setItemQty(e.target.value + '')}
                         />
-                      <span className='order-card-price'>$ {dish['dish-price'] * itemQty}</span>
+                      <span className='order-card-price'>$ {parseFloat(dish['dish-price'] * itemQty).toFixed(2)}</span>
                     </div>
                 </div>
                 <div className='order-card-btn-box'>
                   <button className='order-card-btn order-card-btn-left'
-                    onClick={() => handleClickedAction("order")}
+                    onClick={() => handleClickedAction("orders")}
                   >
                     Order
                     <MdDeliveryDining className='order-card-btn-icon'/>

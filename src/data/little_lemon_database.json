@@ -1,90 +1,51 @@
 {
   "login-profiles": [
     {
-      "0": {
-        "id": 1,
-        "email": "alexrocks@email.com",
-        "name": "Alex Smith",
-        "image": "testimonial-images/person1.jpg",
-        "password": "alexrocks",
-        "address": [
-          "chicago 1213 building",
-          "los angelas 123/12 garden west"
-        ],
-        "cart": [
-          {
-            "id": 0,
-            "dish-quantity": "2"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          }
-        ],
-        "order": [
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          },
-          {
-            "id": 5,
-            "dish-quantity": "1"
-          }
-        ]
-      },
-      "id": 1
+      "id": 1,
+      "email": "alexrocks@email.com",
+      "name": "Alex Smith",
+      "image": "testimonial-images/person1.jpg",
+      "password": "alexrocks",
+      "address": [
+        "chicago 1213 building",
+        "los angelas 123/12 garden west"
+      ],
+      "cart": [
+        {
+          "id": 0,
+          "dish-quantity": "2"
+        },
+        {
+          "id": 5,
+          "dish-quantity": "1"
+        },
+        {
+          "id": 5,
+          "dish-quantity": "1"
+        },
+        {
+          "id": 5,
+          "dish-quantity": "7"
+        }
+      ],
+      "orders": [
+        {
+          "id": 5,
+          "dish-quantity": "1"
+        },
+        {
+          "id": 5,
+          "dish-quantity": "1"
+        },
+        {
+          "id": 5,
+          "dish-quantity": "1"
+        },
+        {
+          "id": 5,
+          "dish-quantity": "8"
+        }
+      ]
     }
   ],
   "menu": [

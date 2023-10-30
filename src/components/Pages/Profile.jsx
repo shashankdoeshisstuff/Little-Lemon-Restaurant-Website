@@ -1,32 +1,32 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Profile.css'
-import DishData from "../../data/Menu.json"
 import axios from 'axios'
 import { DataContext } from '../../data/DataContext'
 
 const Profile = () => {
     /* context data */
-    const { profile } = useContext(DataContext)
+    const { menu, profile } = useContext(DataContext)
 
     const [viewOption, setViewOption] = useState('cart');
+    console.log(viewOption)
 
     const id = 1;
     
-    const currentProfile = profile.find((item) => item['id'] === id);
-    console.log(currentProfile)
+    const userIndex = profile.findIndex((prof) => prof['id'] === id)
+    const currentProfile = profile[userIndex];
 
 
     const handleRemoveCartItem = () => {}
 
-    const CartComponent = () => {
+    const handleViewType = () => {
         return (
             <div  className='view-render'>
-                {currentProfile['cart'].map((item, index) => {
-                    const matchingDish = DishData.find(dish => dish["dish-name"] === item["dish-name"]);
+                {currentProfile[viewOption].map((item) => {
+                    const matchingDish = menu.find(dish => dish["id"] === item["id"]);
 
                     if(matchingDish) {
                         return (
-                            <div key={index} className='cart-item'>
+                            <div key={matchingDish['id']} className='cart-item'>
                                 <div>
                                     <img className='cart-image' 
                                     src={matchingDish["dish-image"]} 
@@ -65,15 +65,6 @@ const Profile = () => {
                 })}
             </div>
         )
-    }
-
-    const handleViewType = () => {
-        switch (viewOption) {
-            case "cart":
-                return CartComponent();
-            default :
-              return null;
-        }
     }
 
   return (
