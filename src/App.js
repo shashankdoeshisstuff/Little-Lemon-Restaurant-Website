@@ -1,9 +1,9 @@
-import css from './App.css';
+import './App.css';
 import Header from './components/Global/Header';
 import Footer from './components/Global/Footer';
 import Main from "./components/Global/Main";
-import { DataProvider } from './data/DataContext';
-import { useContext } from 'react';
+import { DataProvider, SetDataProvider } from './data/DataContext';
+import React, { useContext } from 'react';
 
 const MainApp = () => {
 
@@ -20,7 +20,9 @@ function App() {
 
   return (
     <DataProvider>
-      <MainApp/>
+      <SetDataProvider>  
+        <MainApp/>
+      </SetDataProvider>
     </DataProvider>
   );
 }

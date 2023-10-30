@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { DataContext} from '../../../data/DataContext'
+import { DataContext, SetDataContext} from '../../../data/DataContext'
 import './OrderPopUp.css'
 import {IoCloseCircleSharp} from 'react-icons/io5'
 import {MdDeliveryDining, MdOutlineAddShoppingCart} from "react-icons/md"
 import {BsFillPatchCheckFill} from "react-icons/bs"
 import axios from 'axios'
-import { Link, Navigate } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
-const OrderPopUp = ({dishId, dishQty, setOrderPopOpen}) => {
+const OrderPopUp = ({dishId, dishQty, setOrderPopOpen, viewOption}) => {
   /* action state */
   const [action, setAction] = useState({
     "value": false,
@@ -26,6 +26,7 @@ const OrderPopUp = ({dishId, dishQty, setOrderPopOpen}) => {
   
   /* menu Context data */
   const { menu, profile } = useContext(DataContext);
+  const { HandleRemoveItemFormCartOrOrder } = useContext(SetDataContext)
 
 const OrderOrCart = (type, dishId, Qty) => {
   const id = 1;
@@ -116,7 +117,10 @@ const OrderOrCart = (type, dishId, Qty) => {
                   ) : (
                     <div className='order-card-btn-box-profile'>
                       <button className='order-card-btn order-card-btn-order-profile'
-                        onClick={() => handleClickedAction("orders")}
+                        onClick={() => {
+                          handleClickedAction("orders");
+                          HandleRemoveItemFormCartOrOrder(dishId, viewOption)
+                        }}
                       >
                         Order
                         <MdDeliveryDining className='order-card-btn-icon'/>
@@ -126,10 +130,6 @@ const OrderOrCart = (type, dishId, Qty) => {
                 }
             </article>
       )
-    }
-
-    const navigateToProfile = () => {
-
     }
 
     const actionCompleteRender = () => {
@@ -148,7 +148,7 @@ const OrderOrCart = (type, dishId, Qty) => {
             ) : (
               <div className='order-action-complete-text-box'>
                 <h2 className='lead-order-action-complete-text'>Item added to Shopping cart</h2>
-                <p>You browse for more items or you can look into your 
+                <p>You can browse for more items or you can look into your 
                   Shopping cart in your profile</p>
               </div>
             )

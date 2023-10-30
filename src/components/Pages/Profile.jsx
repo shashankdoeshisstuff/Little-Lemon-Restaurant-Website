@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react'
 import './Profile.css'
-import axios from 'axios'
 import { DataContext } from '../../data/DataContext'
 import OrderPopUp from './Page-components/OrderPopUp'
+import ShowEmptyForProfile from './Profile/ShowEmptyForProfile'
+import ShowCartOrOrder from './Profile/ShowCartOrOrder'
+import CartTotal from './Profile/CartTotal'
 
 const Profile = () => {
     /* context data */
-    const { menu, profile, updateProfileContext } = useContext(DataContext)
+    const { profile } = useContext(DataContext)
     /* order state */
     const [isOrderPopOpen, setOrderPopOpen] = useState(false)
     const[dishId, setDishId] = useState();
@@ -24,72 +26,31 @@ const Profile = () => {
         setDishId(DishId);
         setOrderPopOpen(true);
     }
-    const handleRemoveCartItem = (idForItem, Option) => {
-        const id = 1;
-
-        const grabProfileIndex = profile.findIndex((prof) => prof['id'] === id);
-            const grabProfile = {...profile[grabProfileIndex]};
-            const grabProfileType = grabProfile[Option].filter((item) => item['id'] !== idForItem);
-            delete grabProfile[Option];
-
-            const updatedProfile = {...grabProfile, [Option]: grabProfileType}
-
-            axios.put(`http://localhost:3000/login-profiles/${id}`, updatedProfile)
-              .then(response => {
-                updateProfileContext();
-                console.log('updated profile successfully')
-              })
-              .catch(error => console.log(error));
-    }
 
     const handleViewType = () => {
         return (
-            <div  className='view-render'>
-                {currentProfile[viewOption].map((item) => {
-                    const matchingDish = menu.find(dish => dish["id"] === item["id"]);
-
-                    if(matchingDish) {
-                        return (
-                            <div key={matchingDish['id']} className='cart-item'>
-                                <div>
-                                    <img className='cart-image' 
-                                    src={matchingDish["dish-image"]} 
-                                    alt="error" />
-                                </div>
-                                <div className='cart-content'>
-                                    <div className='cart-details'>
-                                        <div>
-                                            <span className='cardTitle'>
-                                                {matchingDish["dish-name"]}
-                                            </span>
-                                        </div>
-                                        <div>
-                                            <span className='cart-item-qty'> Qty. {item["dish-quantity"]}</span>
-                                        </div>
-                                        <div className='cart-price-box'>
-                                            <span className='costText DishCost'>
-                                                $ {
-                                                    (parseFloat(matchingDish["dish-price"]) 
-                                                    * parseFloat(item["dish-quantity"])).toFixed(2)
-                                                }
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className='cart-btn-box'>
-                                        <button className='cart-btn'
-                                        onClick={() => handleProfileOrder(matchingDish['id'], item['dish-quantity'])}
-                                        >Order</button>
-                                        <button className='cart-btn'
-                                         onClick={() => handleRemoveCartItem(item['id'], viewOption)}
-                                        >Remove</button>
-                                    </div>
-                                </div>
-                            </div>
-                        )
-                    }
-                    return null;
-                })}
-            </div>
+            currentProfile[viewOption].length === 0 ? (
+                <>
+                <ShowEmptyForProfile
+                    viewOption={viewOption}
+                />
+                </>
+            ) : (
+                <>
+                <ShowCartOrOrder 
+                    currentProfile={currentProfile}
+                    viewOption={viewOption}
+                    handleProfileOrder={handleProfileOrder}
+                />
+                {
+                    viewOption === 'cart' ? (
+                        <CartTotal
+                        Cart={currentProfile['cart']}
+                        />
+                    ) : ( null )
+                }
+                </>
+            )
         )
     }
 
@@ -115,13 +76,13 @@ const Profile = () => {
         <section className='section'>
             <div className='container profile-action-box'>
                 <div className='profile-action'>
-                    <button className='mainBtn'
+                    <button className={(viewOption === "cart" ? 'profile-action-btn-active' : 'profile-action-btn')}
                         onClick={() => setViewOption("cart")}
                         >Cart</button>
-                    <button className='mainBtn'
+                    <button className={(viewOption === "orders" ? 'profile-action-btn-active' : 'profile-action-btn')}
                         onClick={() => setViewOption("orders")}
                         >Orders</button>
-                    <button className='mainBtn'
+                    <button className={(viewOption === "reservations" ? 'profile-action-btn-active' : 'profile-action-btn')}
                         onClick={() => setViewOption("reservations")}
                         >Reservations</button>
                 </div>
@@ -136,6 +97,7 @@ const Profile = () => {
             dishId={dishId}
             dishQty={dishQty}
             setOrderPopOpen={setOrderPopOpen}
+            viewOption={viewOption}
             />
             )}
         </div>

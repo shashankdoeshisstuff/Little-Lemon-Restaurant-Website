@@ -1,0 +1,31 @@
+.show-empty-container{
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  padding: 20px;
+  height:480px;
+  background: var(--greyColor);
+  border-radius: 16px;
+}
+.show-empty-box{
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.show-empty-icon{
+  font-size: 120px;
+  color: var(--primaryColor);
+}
+.show-empty-head{
+  color: var(--primaryColor);
+  font-family: var(--markazi);
+  font-size: 48px;
+  font-weight: 500;
+}
+.show-empty-text{
+  color: var(--primaryColor);
+  font-family: var(--karla);
+  font-size: 24px;
+  font-weight: 500;
+}

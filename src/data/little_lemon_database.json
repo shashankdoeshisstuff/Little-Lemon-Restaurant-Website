@@ -10,13 +10,9 @@
         "chicago 1213 building",
         "los angelas 123/12 garden west"
       ],
-      "orders": [
-        {
-          "id": 16,
-          "dish-quantity": "1"
-        }
-      ],
-      "cart": []
+      "reservations": [],
+      "cart": [],
+      "orders": []
     }
   ],
   "menu": [

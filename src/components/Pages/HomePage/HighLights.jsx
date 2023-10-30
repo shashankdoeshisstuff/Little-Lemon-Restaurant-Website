@@ -19,7 +19,7 @@ const HighLights = () => {
         <div className='container grid-container highlights'>
             <div className='highlightsHead'>
                 <h2 className="mainSubHeading headText grdItGoLeft">This Week's Specials!</h2>
-                <Link to="/UnderConstruction">
+                <Link to="/Menu">
                     <button className="mainBtn grdItGoRight">Online Menu</button>
                 </Link>
             </div>
