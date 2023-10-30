@@ -47,7 +47,9 @@
 }
 
 .cart-image {
+    object-fit: cover;
     width: 180px;
+    height: 140px;
     border-radius: 16px;
 }
 
@@ -61,6 +63,12 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    transition: .2s ease;
+}
+.cart-btn:hover{
+    color: var(--primaryColor);
+    background: var(--secondaryColor);
+    transition: .2s ease;
 }
 
 .cart-btn-box {

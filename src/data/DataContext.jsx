@@ -21,10 +21,14 @@ export const DataProvider = (props) => {
     getData('testimonials', setTestimonials)
     getData('login-profiles', setProfile)
   },[])
+
+  const updateProfileContext = () => {
+    getData('login-profiles', setProfile);
+  }
     
 
   return (
-            <DataContext.Provider value={{menu, testimonials, profile}}>
+            <DataContext.Provider value={{menu, testimonials, profile, updateProfileContext}}>
               {props.children}
             </DataContext.Provider>
   )
