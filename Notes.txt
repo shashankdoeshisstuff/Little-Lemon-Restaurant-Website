@@ -1,9 +1,9 @@
 # issues
-// If you order from cart item will get added to cart but not get remove from cart.
+// If you order from cart item will get added to cart but not get remove from cart.--<<
 
 # to Do
 // create component for Cart,Order,Reservation option to show when they don't have anything to show, --<<
 // remove order button from order option cards --<<
 // change remove to cancel in order option's cart --<<
-// create component to show total in shopping cart
-// create function to push the data in cart and order array or if already item exist add the data. --in OrderPopUP
+// create component to show total in shopping cart --<<
+// create function to push the data in cart and order array or if already item exist add the data. --in OrderPopUP --<<

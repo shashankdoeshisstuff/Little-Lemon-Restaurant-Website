@@ -8,7 +8,7 @@ import CartTotal from './Profile/CartTotal'
 
 const Profile = () => {
     /* context data */
-    const { profile } = useContext(DataContext)
+    const { profile, updateProfileContext } = useContext(DataContext)
     /* order state */
     const [isOrderPopOpen, setOrderPopOpen] = useState(false)
     const[dishId, setDishId] = useState();
@@ -77,13 +77,13 @@ const Profile = () => {
             <div className='container profile-action-box'>
                 <div className='profile-action'>
                     <button className={(viewOption === "cart" ? 'profile-action-btn-active' : 'profile-action-btn')}
-                        onClick={() => setViewOption("cart")}
+                        onClick={() => { updateProfileContext(); setViewOption("cart")}}
                         >Cart</button>
                     <button className={(viewOption === "orders" ? 'profile-action-btn-active' : 'profile-action-btn')}
-                        onClick={() => setViewOption("orders")}
+                        onClick={() => { updateProfileContext(); setViewOption("orders")}}
                         >Orders</button>
                     <button className={(viewOption === "reservations" ? 'profile-action-btn-active' : 'profile-action-btn')}
-                        onClick={() => setViewOption("reservations")}
+                        onClick={() => { updateProfileContext(); setViewOption("reservations")}}
                         >Reservations</button>
                 </div>
                 <div>

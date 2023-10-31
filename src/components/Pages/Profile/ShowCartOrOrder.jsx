@@ -3,16 +3,11 @@ import { DataContext, SetDataContext } from '../../../data/DataContext';
 
 const ShowCartOrOrder = ({currentProfile, viewOption, handleProfileOrder}) => {
     const { menu } = useContext(DataContext)
-    const { HandleRemoveItemFormCartOrOrder, returnedProfile } = useContext(SetDataContext)
+    const { HandleRemoveItemFormCartOrOrder, ReturnedProfile } = useContext(SetDataContext)
 
-  return (
-    <div  className='view-render'>
-        {currentProfile[viewOption].map((item) => {
-            const matchingDish = menu.find(dish => dish["id"] === item["id"]);
-
-            if(matchingDish) {
-                return (
-                    <div key={matchingDish['id']} className='cart-item'>
+    const renderCart = (item, matchingDish) => {
+        return (
+            <div key={matchingDish['id']} className='cart-item'>
                         <div>
                             <img className='cart-image' 
                             src={matchingDish["dish-image"]} 
@@ -61,11 +56,27 @@ const ShowCartOrOrder = ({currentProfile, viewOption, handleProfileOrder}) => {
                             </div>
                         </div>
                     </div>
-                )
+        )
+    }
+    
+    const renderView = () => {
+        const renderedItems = [];
+
+        for (const item of ReturnedProfile[viewOption]) {
+            for (const menuItem of menu) {
+                if ( item['id'] === menuItem['id'] ) {
+                    renderedItems.push(renderCart(item, menuItem));
+                }
             }
-        })}
-    </div>
-)
+        }
+        return renderedItems;
+    }
+
+    return (
+        <div  className='view-render'>
+            {renderView()}
+        </div>
+    )
 }
 
 export default ShowCartOrOrder

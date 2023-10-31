@@ -37,10 +37,18 @@ export const DataProvider = (props) => {
 
 export const SetDataProvider = (props) => {
   const { profile, updateProfileContext } = useContext(DataContext)
-
+  const id = 1;
+  
+  const HandleUpdateProfile = (updatedProfile, triggerFunc) => {
+    axios.put(`http://localhost:3000/login-profiles/${id}`, updatedProfile)
+              .then(response => {
+                triggerFunc();
+                /* console.log('updated profile successfully') */
+              })
+              .catch(error => console.log(error));
+  }
+  
   const HandleRemoveItemFormCartOrOrder = (idForItem, Option) => {
-    const id = 1;
-
         const grabProfileIndex = profile.findIndex((prof) => prof['id'] === id);
             const grabProfile = {...profile[grabProfileIndex]};
             const grabProfileType = grabProfile[Option].filter((item) => item['id'] !== idForItem);
@@ -48,27 +56,17 @@ export const SetDataProvider = (props) => {
 
             const updatedProfile = {...grabProfile, [Option]: grabProfileType}
 
-            axios.put(`http://localhost:3000/login-profiles/${id}`, updatedProfile)
-              .then(response => {
-                updateProfileContext();
-                console.log('updated profile successfully')
-              })
-              .catch(error => console.log(error));
+            HandleUpdateProfile(updatedProfile, updateProfileContext);
   }
 
-  const returnedProfile = () => {
-    const id = 1;
-    
-    const userIndex = profile.findIndex((prof) => prof['id'] === id)
-    const currentProfile = profile[userIndex];
+  const userIndex = profile.findIndex((prof) => prof['id'] === id)
+  const currentProfile = profile[userIndex];
 
-    return currentProfile;
-  }
+  const ReturnedProfile = currentProfile;
 
-  const HandleAddItem = () => {}
 
   return (
-    <SetDataContext.Provider value={{HandleRemoveItemFormCartOrOrder, returnedProfile}}>
+    <SetDataContext.Provider value={{HandleUpdateProfile , HandleRemoveItemFormCartOrOrder, ReturnedProfile}}>
       {props.children}
     </SetDataContext.Provider>
   )

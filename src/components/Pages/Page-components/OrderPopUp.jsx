@@ -1,19 +1,20 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { DataContext, SetDataContext} from '../../../data/DataContext'
 import './OrderPopUp.css'
+import React, { useState, useContext, useEffect } from 'react'
+import {DataContext, SetDataContext} from '../../../data/DataContext'
 import {IoCloseCircleSharp} from 'react-icons/io5'
 import {MdDeliveryDining, MdOutlineAddShoppingCart} from "react-icons/md"
 import {BsFillPatchCheckFill} from "react-icons/bs"
-import axios from 'axios'
-import { Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const OrderPopUp = ({dishId, dishQty, setOrderPopOpen, viewOption}) => {
+  /* menu Context data */
+  const { menu } = useContext(DataContext);
+  const { HandleUpdateProfile , HandleRemoveItemFormCartOrOrder , ReturnedProfile} = useContext(SetDataContext)
   /* action state */
   const [action, setAction] = useState({
     "value": false,
     "type": ''
   })
-  console.log(action)
 
   /* popup state */
   const [itemQty, setItemQty] = useState('1')
@@ -24,37 +25,44 @@ const OrderPopUp = ({dishId, dishQty, setOrderPopOpen, viewOption}) => {
     }
   },[])
   
-  /* menu Context data */
-  const { menu, profile } = useContext(DataContext);
-  const { HandleRemoveItemFormCartOrOrder } = useContext(SetDataContext)
 
 const OrderOrCart = (type, dishId, Qty) => {
-  const id = 1;
-    const item = {
-      "id": dishId,
-      "dish-quantity": Qty
-    }
+  const ProfileForUser = ReturnedProfile;
+  const item = {
+    "id": dishId,
+    "dish-quantity": Qty
+  }
+  const setActionFunc = ()  => {
+    setAction({
+      "value": true,
+      "type": type
+    })
+  }
     
-    /* getting correct type */
+  const pushItem = () => {
+    ProfileForUser[type].push(item);
+  }
 
-    const userIndex = profile.findIndex((prof) => prof['id']  === id);
-      const updatedUser = {...profile[userIndex]};
-      
-      updatedUser[type].push(item);
+  const updateType = (newArray) => {
+    ProfileForUser[type] = newArray;
+  }
+  
+  const checkAvailability = () => {
+    for (const element of ProfileForUser[type]) {
+      if (element['id'] === item['id']) {
+        console.log(element)
+        const tempQty = parseFloat(element['dish-quantity']) + parseFloat(item['dish-quantity']);
+        item['dish-quantity'] = tempQty + '';
+        const typeArray = ProfileForUser[type].filter((ele) => ele['id'] !== item['id']);
+        updateType(typeArray);
+      } 
+    }
+    pushItem()
+  }
+  checkAvailability();
 
-     /*  const updatedProfile = [...profile];
-      updatedProfile[userIndex] = updatedUser; */
-
-    axios.put(`http://localhost:3000/login-profiles/${id}`, updatedUser)
-              .then(response => {
-                setAction({
-                  "value": true,
-                  "type": type
-                })
-                console.log('updated profile successfully')
-              })
-              .catch(error => console.log(error));
-  };
+  HandleUpdateProfile(ProfileForUser, setActionFunc);
+};
 
   const handleClickedAction = (type) => {
     OrderOrCart(type, dishId, itemQty);
