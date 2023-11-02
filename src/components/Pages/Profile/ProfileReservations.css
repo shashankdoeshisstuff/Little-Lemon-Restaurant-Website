@@ -1,0 +1,74 @@
+.profile_reservation_card_ul{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile_reservation_card_box{
+  background: var(--greyColor);
+  border-radius: 16px;
+  height: 140px;
+  display: grid;
+  grid-template-columns: 200px auto;
+}
+
+.profile_reservation_card_image{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px 0 0 16px;
+}
+
+.profile_reservation_card_sub_box{
+  display: grid;
+  grid-template-rows: auto 40px;
+}
+
+.profile_reservation_card_parts{
+  padding: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+.profile_reservation_card_button_box{
+  height: 100%;
+  justify-self: end;
+}
+.profile_reservation_card_button{
+  height: 100%;
+  width: 180px;
+  border: none;
+  border-radius: 16px 0 16px 0 ;
+  background: var(--primaryColor);
+  color: white;
+  font-family: var(--karla);
+  font-size: 18px;
+  transition: .2s ease;
+}
+.profile_reservation_card_button:hover{
+  background: var(--secondaryColor);
+  color: var(--primaryColor);
+  transition: .2s ease;
+}
+
+.profile_reservation_text_box{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.profile_reservation_text{
+  font-family: var(--karla);
+  color: var(--primaryColor);
+  font-size: 20px;
+  font-weight: 500;
+}
+.profile_reservation_sub_text{
+  font-family: var(--karla);
+  color: var(--primaryColor);
+  font-size: 18px;
+  font-weight: 400;
+}

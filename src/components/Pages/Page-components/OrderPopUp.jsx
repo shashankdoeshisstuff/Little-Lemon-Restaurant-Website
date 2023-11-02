@@ -131,7 +131,9 @@ const OrderOrCart = (type, dishId, Qty) => {
                         }}
                       >
                         Order
-                        <MdDeliveryDining className='order-card-btn-icon'/>
+                        <MdDeliveryDining className='order-card-btn-icon'
+                        onClick={() => {HandleRemoveItemFormCartOrOrder(dishId, viewOption)}}
+                        />
                         </button>
                     </div>
                   )

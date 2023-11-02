@@ -13,6 +13,11 @@
     gap: 20px;
 }
 
+/* Global styles for each pages' components */
+.page-top-section-left {
+    background: var(--primaryColor);
+    margin-bottom:80px;
+}
 .page-top-container {
     grid-template-columns: 1fr 1fr;
 }

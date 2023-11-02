@@ -7,7 +7,7 @@ export const SetDataContext = createContext();
 const getData = (type, setType) => {
   axios.get(`http://localhost:3000/${type}`)
   .then(response => {
-      setType(response.data);
+    setType(response.data);
   })
   .catch((error) => console.log(error))
 }
@@ -16,34 +16,53 @@ export const DataProvider = (props) => {
   const [menu, setMenu] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
   const [profile, setProfile] = useState([])
+  const [reservations, setReservations] = useState([])
 
   useEffect(() => {
     getData('menu', setMenu);
     getData('testimonials', setTestimonials)
     getData('login-profiles', setProfile)
+    getData('reservations', setReservations)
   },[])
 
   const updateProfileContext = () => {
     getData('login-profiles', setProfile);
   }
+  const updateReservationContext = () => {
+    getData('reservations', setReservations)
+  }
     
 
   return (
-            <DataContext.Provider value={{menu, testimonials, profile, updateProfileContext}}>
+            <DataContext.Provider value={
+                {
+                  menu, testimonials, profile, reservations, 
+                  updateProfileContext, updateReservationContext
+                }
+              }>
               {props.children}
             </DataContext.Provider>
   )
 }
 
 export const SetDataProvider = (props) => {
-  const { profile, updateProfileContext } = useContext(DataContext)
+  const { profile,reservations ,updateProfileContext, updateReservationContext } = useContext(DataContext)
   const id = 1;
   
   const HandleUpdateProfile = (updatedProfile, triggerFunc) => {
     axios.put(`http://localhost:3000/login-profiles/${id}`, updatedProfile)
               .then(response => {
                 triggerFunc();
-                /* console.log('updated profile successfully') */
+              })
+              .catch(error => console.log(error));
+  }
+
+  const HandleUpdateReservations = (updatedReservation) => {
+    console.log(updatedReservation)
+    axios.put(`http://localhost:3000/reservations`, updatedReservation)
+              .then(response => {
+                updateReservationContext();
+                console.log('reservation updated')
               })
               .catch(error => console.log(error));
   }
@@ -57,17 +76,29 @@ export const SetDataProvider = (props) => {
             const updatedProfile = {...grabProfile, [Option]: grabProfileType}
 
             HandleUpdateProfile(updatedProfile, updateProfileContext);
+            updateProfileContext()
   }
 
   const userIndex = profile.findIndex((prof) => prof['id'] === id)
   const currentProfile = profile[userIndex];
 
   const ReturnedProfile = currentProfile;
+  /* to delete empty array in reservation's timeSlots */
+  const HandleRemoveEmptyDateFormReservations = () => {
+    if (reservations.bookings !== undefined) {
+      const updatedBookings = reservations['bookings'].filter((element) => element['timeSlots'].length !== 0 )
+      const updatedReservation = {...reservations, "bookings": updatedBookings}
 
+      /* invoke update */
+      HandleUpdateReservations(updatedReservation);
+    }
+  }
 
   return (
-    <SetDataContext.Provider value={{HandleUpdateProfile , HandleRemoveItemFormCartOrOrder, ReturnedProfile}}>
+    <SetDataContext.Provider value={{HandleUpdateProfile, HandleUpdateReservations, HandleRemoveEmptyDateFormReservations, HandleRemoveItemFormCartOrOrder, ReturnedProfile}}>
       {props.children}
     </SetDataContext.Provider>
   )
 }
+
+/* to updated data in jason */

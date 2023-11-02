@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import './Profile.css'
 import { DataContext } from '../../data/DataContext'
+import ProfileReservations from './Profile/ProfileReservations'
 import OrderPopUp from './Page-components/OrderPopUp'
 import ShowEmptyForProfile from './Profile/ShowEmptyForProfile'
 import ShowCartOrOrder from './Profile/ShowCartOrOrder'
@@ -29,27 +30,31 @@ const Profile = () => {
 
     const handleViewType = () => {
         return (
-            currentProfile[viewOption].length === 0 ? (
-                <>
-                <ShowEmptyForProfile
-                    viewOption={viewOption}
-                />
-                </>
+            viewOption === 'reservations' ? (
+                <ProfileReservations/>
             ) : (
-                <>
-                <ShowCartOrOrder 
-                    currentProfile={currentProfile}
-                    viewOption={viewOption}
-                    handleProfileOrder={handleProfileOrder}
-                />
-                {
-                    viewOption === 'cart' ? (
-                        <CartTotal
-                        Cart={currentProfile['cart']}
-                        />
-                    ) : ( null )
-                }
-                </>
+                currentProfile[viewOption].length === 0 ? (
+                    <>
+                    <ShowEmptyForProfile
+                        viewOption={viewOption}
+                    />
+                    </>
+                ) : (
+                    <>
+                    <ShowCartOrOrder 
+                        currentProfile={currentProfile}
+                        viewOption={viewOption}
+                        handleProfileOrder={handleProfileOrder}
+                    />
+                    {
+                        viewOption === 'cart' ? (
+                            <CartTotal
+                            Cart={currentProfile['cart']}
+                            />
+                        ) : ( null )
+                    }
+                    </>
+                )
             )
         )
     }
@@ -104,7 +109,7 @@ const Profile = () => {
         </div>
     ): (
         <p>Loading...</p>
-    )}
+     )}
     </>
   )
 }

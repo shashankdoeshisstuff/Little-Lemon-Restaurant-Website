@@ -4,6 +4,7 @@ import {RiTimeFill} from "react-icons/ri"
 import aboutUsMainImage from '../../assets/aboutus1.jpg'
 import aboutUsImage2 from '../../assets/aboutus2.jpg'
 import aboutUsImage3 from '../../assets/Mario and Adrian b.jpg'
+import PageTopSection from './Page-components/PageTopSection'
 
 const AboutUs = () => {
     const aboutArticle = (Image, BoldText, Para, ClassName) => {
@@ -56,15 +57,12 @@ const AboutUs = () => {
 
   return (
     <>
-    <section className='section aboutUsSection'>
-        <div className='container grid-container page-top-container'>
-            <div>
-                <h1>Discover Our Mediterranean Journey</h1>
-                <h3 className='text-white'>Where Flavors Meet Tradition, and Every Meal Tells a Story.</h3> 
-            </div>
-            <img className='page-main-image' src={aboutUsMainImage} alt="error" />
-        </div>
-    </section>
+    <PageTopSection
+        heading={top_section_heading}
+        sub_text={top_section_text}
+        image={top_section_image}
+        type_for_sub_text={type_for_sub_text}
+    />
     {aboutArticle(aboutUsImage2, "At", aboutArticlePara.FirstPara, "aboutSecondImage")}
     {aboutArticle(aboutUsImage3, "In", aboutArticlePara.SecondPara, "aboutThirdImage")}
     
@@ -116,3 +114,12 @@ const AboutUs = () => {
 }
 
 export default AboutUs
+
+/* return text for components */
+
+/* for top section */
+const top_section_heading = 'Discover Our Mediterranean Journey';
+const top_section_text = `Where Flavors Meet Tradition, 
+and Every Meal Tells a Story.`;
+const top_section_image = aboutUsMainImage;
+const type_for_sub_text = 'h3';

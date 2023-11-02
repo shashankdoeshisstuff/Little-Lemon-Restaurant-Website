@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { DataContext, SetDataContext } from '../../../data/DataContext';
 
-const ShowCartOrOrder = ({currentProfile, viewOption, handleProfileOrder}) => {
-    const { menu } = useContext(DataContext)
+const ShowCartOrOrder = ({viewOption, handleProfileOrder}) => {
+    const { menu, reservations } = useContext(DataContext)
     const { HandleRemoveItemFormCartOrOrder, ReturnedProfile } = useContext(SetDataContext)
 
     const renderCart = (item, matchingDish) => {

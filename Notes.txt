@@ -7,3 +7,7 @@
 // change remove to cancel in order option's cart --<<
 // create component to show total in shopping cart --<<
 // create function to push the data in cart and order array or if already item exist add the data. --in OrderPopUP --<<
+
+// improve the table reservation UI
+// if table get booked add it in user's profile
+// add delete function in user's profile for table reservation
