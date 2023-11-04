@@ -1,10 +1,13 @@
+.aboutus-para{
+    margin-top: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
 .bigBold {
     font-size: 56px;
     font-weight:500;
-}
-
-.aboutThirdPara {
-    text-align: right;
 }
 
 .aboutTiming {
@@ -29,7 +32,7 @@
     margin: 0 40px 20px 0;
 }
 
-.aboutThirdImage {
+.aboutFirstImage {
     float: right;
     width: 520px;
     margin: 0 0 20px 40px;

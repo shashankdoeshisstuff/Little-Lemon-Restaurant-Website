@@ -3,8 +3,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import {DataContext, SetDataContext} from '../../../data/DataContext'
 import {IoCloseCircleSharp} from 'react-icons/io5'
 import {MdDeliveryDining, MdOutlineAddShoppingCart} from "react-icons/md"
-import {BsFillPatchCheckFill} from "react-icons/bs"
-import {Link} from 'react-router-dom'
+import ActionCompletePopUp from './ActionCompletePopUp'
 
 const OrderPopUp = ({dishId, dishQty, setOrderPopOpen, viewOption}) => {
   /* menu Context data */
@@ -141,55 +140,20 @@ const OrderOrCart = (type, dishId, Qty) => {
             </article>
       )
     }
-
-    const actionCompleteRender = () => {
-      return (
-        <div className='order-action-complete'>
-          <div className='order-action-complete-icon-box'>
-            <BsFillPatchCheckFill
-            className='order-action-complete-icon'/>
-          </div>
-          {
-            action.type === 'orders' ? (
-              <div className='order-action-complete-text-box'>
-                <h2 className='lead-order-action-complete-text'>Thank You Ordering..</h2>
-                <p>now your can track your order from profile menu.</p>
-              </div>
-            ) : (
-              <div className='order-action-complete-text-box'>
-                <h2 className='lead-order-action-complete-text'>Item added to Shopping cart</h2>
-                <p>You can browse for more items or you can look into your 
-                  Shopping cart in your profile</p>
-              </div>
-            )
-          }
-          <div className='order-card-btn-box'>
-            <Link className='order-action-complete-link' to='/Profile'>
-              <button className='order-card-btn order-card-btn-left'
-              onClick={() => {setOrderPopOpen(false)}}
-                >
-                Go to Profile.
-              </button>
-            </Link>
-            <button className='order-card-btn order-card-btn-right'
-            onClick={() => setOrderPopOpen(false)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )
-    }
   
-
   return (
     <>
     <section className='order-popup'>
+      <div className='order-popup-container'>
       {
         action.value === false ? 
         renderOrderCard() :
-        actionCompleteRender()
+        <ActionCompletePopUp
+          action={action}
+          setOrderPopOpen={setOrderPopOpen}
+        />
       }
+      </div>
     </section>
     </>
   )

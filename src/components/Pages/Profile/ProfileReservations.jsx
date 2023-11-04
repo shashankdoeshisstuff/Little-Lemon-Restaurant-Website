@@ -1,4 +1,5 @@
 import './ProfileReservations.css'
+import './ProfileCard.css'
 import React, { useContext } from 'react'
 import { DataContext, SetDataContext } from '../../../data/DataContext'
 import ShowEmptyForProfile from './ShowEmptyForProfile';
@@ -59,35 +60,35 @@ const ProfileReservations = () => {
 
   const profileReservationCard = (item) => {
     return (
-      <div className='profile_reservation_card_box'>
+      <div className='profile-item-card'>
         <div>
-          <img className='profile_reservation_card_image' src={tables1} alt="error" />
+          <img className='profile-item-card-image' src={tables1} alt="error" />
         </div>
-       <div className='profile_reservation_card_sub_box'>
-        <div className='profile_reservation_card_parts'>
-          <div className='profile_reservation_text_box'>
-            <span className='profile_reservation_text'>Your booking for</span>
-            <span className='profile_reservation_sub_text'>{item.occasion}</span>
+        <div className='profile-item-card-container'>
+          <div className='profile_reservation_card_parts'>
+            <div className='profile_reservation_text_box'>
+              <span className='profile_reservation_text'>Your booking for</span>
+              <span className='profile_reservation_sub_text'>{item.occasion}</span>
+            </div>
+            <div className='profile_reservation_text_box'>
+              <span className='profile_reservation_text'>Date</span>
+              <span className='profile_reservation_sub_text'>{item.date}</span>
+            </div>
+            <div className='profile_reservation_text_box'>
+              <span className='profile_reservation_text'>Timing</span>
+              <span className='profile_reservation_sub_text'>{item.slotTime}</span>
+            </div>
+            <div className='profile_reservation_text_box'>
+              <span className='profile_reservation_text'>For {item.guest}</span>
+              <span className='profile_reservation_sub_text'>people</span>
+            </div>
           </div>
-          <div className='profile_reservation_text_box'>
-            <span className='profile_reservation_text'>Date</span>
-            <span className='profile_reservation_sub_text'>{item.date}</span>
-          </div>
-          <div className='profile_reservation_text_box'>
-            <span className='profile_reservation_text'>Timing</span>
-            <span className='profile_reservation_sub_text'>{item.slotTime}</span>
-          </div>
-          <div className='profile_reservation_text_box'>
-            <span className='profile_reservation_text'>For {item.guest}</span>
-            <span className='profile_reservation_sub_text'>people</span>
+          <div className='profile-item-card-btn-box profile-item-card-btn-box-single-btn'>
+            <button 
+            onClick={() => handleDeleteReservation(item.date, item.slotTime)}
+            className='profile-item-card-btn profile-item-card-btn-cancel'>Cancel</button>
           </div>
         </div>
-        <div className='profile_reservation_card_button_box'>
-          <button 
-          onClick={() => handleDeleteReservation(item.date, item.slotTime)}
-          className='profile_reservation_card_button'>Cancel</button>
-        </div>
-       </div>
       </div>
     )
   }
@@ -97,14 +98,14 @@ const ProfileReservations = () => {
 
     return (
       returnReservations().length !== 0 ? (
-        <ul className='profile_reservation_card_ul'>
+        <div className='profile-item-card-list'>
           {profileReservations.map((item, index) => (
-            <li key={index} className='profile_reservation_card_li'>
+            <div key={index}>
               {profileReservationCard(item)}
-            </li>
+            </div>
             )
           )}
-      </ul>
+      </div>
       ) : (
         <ShowEmptyForProfile
           viewOption={'reservations'}

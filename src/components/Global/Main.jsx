@@ -1,5 +1,5 @@
-import {React, useContext, useEffect} from 'react'
 import './Main.css'
+import React from 'react'
 import {Routes, Route} from "react-router-dom"
 import Home from '../../components/Pages/Home';
 import AboutUs from '../Pages/AboutUs';

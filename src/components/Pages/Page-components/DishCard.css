@@ -1,11 +1,15 @@
 /* Dish Card */
 .DishCard {
     display: grid;
-    grid-template-rows: 220px auto;
-    height: 580px;
+    grid-template-rows: 220px auto 60px;
+    height: 620px;
     background: var(--greyColor);
     border-radius: 16px;
-    transition: ease .4s;
+    transition: .4s ease;
+}
+.DishCard:hover {
+    background: rgb(174, 174, 174);
+    transition: .4s ease;
 }
 
 .DishImage {
@@ -15,42 +19,45 @@
     border-radius: 16px 16px 0 0;
 }
 
-.DishTitle {
-    grid-area: articleTitle;
+.dish-details {
+    display: grid;
+    grid-template-rows: 80px 80px;
+    padding: 20px;
 }
-.DishCost {
-    grid-area: articleCost;
-    justify-self: end;
+.dish-title-cost-box{
+    display: grid;
+    grid-template-columns: 180px auto;
+    align-items: top;
+    justify-content: space-between;
 }
-.DishText {
-    grid-area: articleText;
+
+.delivery-btn-box{
+    height: 100%;
+    width: 100%;
 }
-.DishBtn {
-    grid-area: articleBtn;
-    justify-self: start;
+.delivery-btn {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: auto auto;
-    width: 200px;
     align-content: center;
-    justify-content: space-between;
-    align-self: end;
+    justify-content: center;
+    gap: 20px;
+    border: none;
+    border-radius: 0 0 16px 16px;
+    font-family: var(--karla);
+    font-size: 14pt;
+    font-weight: regular;
+    color: var(--primaryColor);
+    background: transparent;
+    transition: .2s ease;
 }
 .DishDeliveryIcon {
     padding: 0;
     font-size: 24px;
 }
-
-.DishDetails {
-    display: grid;
-    grid-template-areas: 
-        "articleTitle articleCost"
-        "articleText articleText"
-        "articleBtn articleBtn"
-    ;
-    grid-template-rows: 40px auto 20px;
-    padding: 20px;
-}
-.DishCard:hover {
-    background: rgb(174, 174, 174);
-    transition: ease .4s;
+.delivery-btn:hover{
+    background: var(--secondaryColor);
+    transition: .2s ease;
 }

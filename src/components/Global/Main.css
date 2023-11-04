@@ -4,40 +4,26 @@
     width: 100%;
     height: 340px;
     border-radius: 16px;
-    margin-bottom: -60px;
 }
 
 .menu-list {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
 /* Global styles for each pages' components */
-.page-top-section-left {
-    background: var(--primaryColor);
-    margin-bottom:80px;
-}
-.page-top-container {
-    grid-template-columns: 1fr 1fr;
-}
+
 
 /* media queries */
 @media screen and (max-width:840px){
     .menu-list {
-        grid-template-columns: auto auto;
+        grid-template-columns: repeat(2,1fr)
     }
 }
 
 @media screen and (max-width: 620px) {
     .menu-list {
-        grid-template-columns: auto;
+        grid-template-columns: 1fr;
     }
 }
-@media screen and (max-width: 740px) {
-    .page-top-container {
-        grid-template-columns: auto;
-        grid-template-rows: auto auto;
-    }
-}
-

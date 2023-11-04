@@ -1,15 +1,17 @@
 import React, { useContext, useState } from 'react'
 import './Profile.css'
-import { DataContext } from '../../data/DataContext'
+import { DataContext, SetDataContext } from '../../data/DataContext'
 import ProfileReservations from './Profile/ProfileReservations'
 import OrderPopUp from './Page-components/OrderPopUp'
 import ShowEmptyForProfile from './Profile/ShowEmptyForProfile'
 import ShowCartOrOrder from './Profile/ShowCartOrOrder'
 import CartTotal from './Profile/CartTotal'
+import PageTopSection from './Page-components/PageTopSection'
 
 const Profile = () => {
     /* context data */
     const { profile, updateProfileContext } = useContext(DataContext)
+    const { ReturnedProfile } = useContext(SetDataContext)
     /* order state */
     const [isOrderPopOpen, setOrderPopOpen] = useState(false)
     const[dishId, setDishId] = useState();
@@ -63,36 +65,54 @@ const Profile = () => {
     <>
     {currentProfile ? (  
         <div>  
-        <section className='section primary-background menu-head'>
-            <div className='container grid-container menu-top'>
-                <img
-                    className='page-main-image menu-main-image' 
-                    src={currentProfile["image"]} 
-                    alt="error" 
-                    />
-                <div className='about-text-box'>
-                    <h1 className='text-yellow'>Welcome</h1>
-                    <h2 className='text-white'>{currentProfile["name"]}</h2>
-                    <h3 className='text-white'>{currentProfile["email"]}</h3>
-                    <button className='mainBtn yellowBorderBtn'>Edit Profile</button>
-                </div>
-            </div>
-        </section>
+            <PageTopSection
+                heading={top_section_heading}
+                sub_heading={ReturnedProfile['name']}
+                sub_text={ReturnedProfile['email']}
+                image={ReturnedProfile['image']}
+                type_for_sub_text={top_section_type_for_sub_text}
+                button_text={top_section_button_text}
+                button_path={top_section_button_path}
+                image_position={top_section_image_position}
+            />
         <section className='section'>
-            <div className='container profile-action-box'>
-                <div className='profile-action'>
-                    <button className={(viewOption === "cart" ? 'profile-action-btn-active' : 'profile-action-btn')}
-                        onClick={() => { updateProfileContext(); setViewOption("cart")}}
-                        >Cart</button>
-                    <button className={(viewOption === "orders" ? 'profile-action-btn-active' : 'profile-action-btn')}
-                        onClick={() => { updateProfileContext(); setViewOption("orders")}}
-                        >Orders</button>
-                    <button className={(viewOption === "reservations" ? 'profile-action-btn-active' : 'profile-action-btn')}
-                        onClick={() => { updateProfileContext(); setViewOption("reservations")}}
-                        >Reservations</button>
-                </div>
-                <div>
-                    {handleViewType()}
+            <div className='container'>
+                <div className='profile-action-box'>
+                    <div className='profile-action'>
+                        <button className={(viewOption === "cart" ? 
+                        'profile-action-btn-active' : 
+                        `profile-action-btn profile-action-btn-cart-${ 
+                            viewOption === 'orders' ? 
+                            'orders' : 
+                            viewOption === 'reservations' ? 
+                            'reservations' : ''}`
+                        )}
+                            onClick={() => { updateProfileContext(); setViewOption("cart")}}
+                            >Cart</button>
+                        <button className={(viewOption === "orders" ? 
+                        'profile-action-btn-active' : 
+                        `profile-action-btn profile-action-btn-orders-${
+                            viewOption === 'cart' ?
+                            'cart' :
+                            viewOption === 'reservations' ?
+                            'reservations' : ''}`
+                        )}
+                            onClick={() => { updateProfileContext(); setViewOption("orders")}}
+                            >Orders</button>
+                        <button className={(viewOption === "reservations" ? 
+                        'profile-action-btn-active' : 
+                        `profile-action-btn profile-action-btn-reservations-${
+                            viewOption === 'cart' ?
+                            'cart' :
+                            viewOption === 'orders' ?
+                            'orders' : ''}`
+                        )}
+                            onClick={() => { updateProfileContext(); setViewOption("reservations")}}
+                            >Reservations</button>
+                    </div>
+                    <div>
+                        {handleViewType()}
+                    </div>
                 </div>
             </div>
         </section>
@@ -115,3 +135,11 @@ const Profile = () => {
 }
 
 export default Profile
+/* return text for components */
+
+/* for top section */
+const top_section_heading = 'Welcome';
+const top_section_image_position = 'right';
+const top_section_type_for_sub_text = 'p';
+const top_section_button_text = 'Edit Profile';
+const top_section_button_path = '/UnderConstruction';

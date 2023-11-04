@@ -1,21 +1,17 @@
 .cart-total-container{
-  display: flex;
-  justify-content: center;
-  justify-self: center;
-  max-width: 520px;
-  margin-top: 20px;
-}
-.cart-total-box{
-  display: grid;
-  flex-direction: column;
   width: 100%;
-  height: 420px;
-  background: var(--greyColor);
-  border-radius: 16px;
-  padding: 20px;
+  display: grid;
+  grid-template-rows: auto 80px;
   font-family: var(--karla);
   color: var(--primaryColor);
   font-size: 20px;
+}
+
+.cart-total-box{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .cart-total-sub-box{
@@ -26,7 +22,7 @@
 }
 
 .cart-total-head{
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 500;
 }
 .cart-total-price{
@@ -36,17 +32,18 @@
 .cart-total-btn{
   width: 100%;
   border: none;
-  background: var(--secondaryColor);
-  color: var(--primaryColor);
+  border-radius: 0 0 16px 16px;
+  background: var(--primaryColor);
+  color: white;
   font-family: var(--karla);
-  font-size: 20px;
-  border-radius: 8px;
+  font-size: 24px;
+  font-weight: 600;
   transition: .2s ease;
   cursor: pointer;
 }
 .cart-total-btn:hover{
-  background: var(--primaryColor);
-  color: white;
+  background: var(--secondaryColor);
+  color: var(--primaryColor);
   transition: .2s ease;
 }
 
@@ -54,5 +51,5 @@ hr{
   width: 95%;
   background: var(--primaryColor);
   color: var(--primaryColor);
-  height: .5px;
+  height: .2px;
 }

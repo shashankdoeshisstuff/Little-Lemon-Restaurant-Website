@@ -28,23 +28,23 @@ const CartTotal = ({Cart}) => {
   return (
     <section className='cart-total-container'>
       <div className='cart-total-box'>
-      <span className='cart-total-head'>Order summary</span>
-      <div className='cart-total-sub-box'>
-        <span className='cart-total-'>Subtotal</span>
-        <span className='cart-total-'>$ {totalAmount()}</span>
-      </div>
-      <hr />
-      <div className='cart-total-sub-box'>
-        <span className='cart-total-'>Delivery</span>
-        <span className='cart-total-'>$ {taxPrice}</span>
-      </div>
-      <hr />
-      <div className='cart-total-sub-box'>
-        <span className='cart-total-head'>Order total</span>
-        <span className='cart-total-price'>$ {parseFloat(taxPrice) + parseFloat(totalAmount())}</span>
+        <span className='cart-total-head'>Order summary</span>
+        <div className='cart-total-sub-box'>
+          <span>Subtotal</span>
+          <span>$ {totalAmount()}</span>
+        </div>
+        <hr />
+        <div className='cart-total-sub-box'>
+          <span>Delivery</span>
+          <span>$ {taxPrice}</span>
+        </div>
+        <hr />
+        <div className='cart-total-sub-box'>
+          <span className='cart-total-head'>Order total</span>
+          <span className='cart-total-price'>$ {parseFloat(taxPrice) + parseFloat(totalAmount())}</span>
+        </div>
       </div>
       <button className='cart-total-btn'>Checkout</button>
-      </div>
     </section>
   )
 }

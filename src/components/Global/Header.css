@@ -1,9 +1,12 @@
-.headerContainer {
-    grid-template-columns: auto auto;
+.header-container {
+    width: var(--max-width);
+    grid-template-columns: 180px auto;
+    height: 80px;
 }
 
+.header-img-container{
+    padding: 0 10px 0 10px;
+}
 .headerImg {
-    max-width: 80%;
-    min-width: 180px;
-    width: auto/2;
+    height: 60px;
 }

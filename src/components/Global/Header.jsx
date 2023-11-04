@@ -7,8 +7,10 @@ import Nav from './Nav'
 const Header = () => {
   return (
     <section className='section'>
-      <div className='container grid-container headerContainer'>
-        <img className='headerImg' src={Logo} alt="error" />
+      <div className='grid-container header-container'>
+        <div className='header-img-container'>
+          <img className='headerImg' src={Logo} alt="error" />
+        </div>
         <Nav/>
       </div>
     </section>

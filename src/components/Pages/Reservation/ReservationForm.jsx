@@ -2,8 +2,14 @@ import React, { useContext, useEffect, useState } from 'react'
 import './ReservationForm.css'
 import imageForReservationForm from '../../../assets/tables2.jpg'
 import { DataContext, SetDataContext } from '../../../data/DataContext'
+import ActionCompletePopUp from '../Page-components/ActionCompletePopUp'
 
 const ReservationForm = () => {
+  const [isOrderPopOpen, setOrderPopOpen] = useState(false)
+  const [action, setAction] = useState({
+    "value": false,
+    "type": ''
+  })
   /* getting data context */
   const {profile, reservations} = useContext(DataContext);
   const {HandleUpdateReservations} = useContext(SetDataContext)
@@ -125,6 +131,11 @@ const ReservationForm = () => {
       setFormEmpty(false);
       updateReservation();
       setBookingToDefault();
+      setOrderPopOpen(true);
+      setAction({
+        "value": false,
+        "type": 'reservation-form'
+      })
     }
   }
 
@@ -199,6 +210,18 @@ const ReservationForm = () => {
         </div>
       </div>
     </section>
+    <div>
+            {isOrderPopOpen && (
+              <section className='form-popup'>
+                <div className='form-popup-container'>
+                  <ActionCompletePopUp
+                    action={action}
+                    setOrderPopOpen={setOrderPopOpen}
+                  />
+                </div>
+              </section>
+            )}
+        </div>
     </>
   )
 }

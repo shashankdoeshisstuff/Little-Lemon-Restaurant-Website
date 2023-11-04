@@ -1,0 +1,46 @@
+.page-top-section-left {
+  background: var(--primaryColor);
+}
+.page-top-section-margin{
+  margin-bottom: 40px;
+}
+
+.page-top-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+.page_top_button{
+  background: var(--greyColor);
+  color: var(--primaryColor);
+  font-family: var(--karla);
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 16px;
+  margin-top: 20px;
+  width: 180px;
+  height: 50px;
+  transition: .2s ease;
+}
+.page_top_button:hover{
+  background: var(--secondaryColor);
+  color: var(--primaryColor);
+  transition: .2s ease;
+}
+.top-section-page-image-margin{
+  margin-bottom: -60px;
+}
+
+@media screen and (max-width: 740px) {
+  .page-top-container {
+      gap: 20px;
+      grid-template-columns: auto;
+      grid-template-rows: auto auto;
+  }
+  .top-section-page-image-no-margin{
+    margin: 0;
+  }
+}

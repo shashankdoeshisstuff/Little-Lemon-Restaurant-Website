@@ -17,15 +17,22 @@ const DishCard = ({ dishId, setOrderPopOpen, setDishId }) => {
     return (
             <article className='DishCard'>
                 <img className='DishImage' src={dishCard['dish-image']} alt="error" />
-                <div className='DishDetails'>
-                    <span className='cardTitle DishTitle'>{dishCard['dish-name']}</span>
-                    <span className='costText DishCost'>$ {dishCard['dish-price']}</span>
-                    <p className='paragraphText DishText' >
+                <div className='dish-details'>
+                  <div className='dish-title-cost-box'>
+                    <span className='cardTitle'>{dishCard['dish-name']}</span>
+                    <span className='costText'>$ {dishCard['dish-price']}</span>
+                  </div>
+                  <div>
+                    <p className='paragraphText' >
                         {dishCard['dish-details']}
                     </p>
-                    <button className='deliveryBtn DishBtn'
-                      onClick={() => handleOrderPopUp()}
-                    >Order a Delivery<MdDeliveryDining className='DishDeliveryIcon'/></button>
+                  </div>
+                </div>
+                <div className='delivery-btn-box'>
+                  <button className='delivery-btn'
+                    onClick={() => handleOrderPopUp()}
+                  >Order a Delivery<MdDeliveryDining className='DishDeliveryIcon'/>
+                  </button>
                 </div>
             </article>
     )

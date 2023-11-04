@@ -13,22 +13,30 @@
       "reservations": [],
       "cart": [
         {
-          "id": 1,
-          "dish-quantity": "3"
+          "id": 5,
+          "dish-quantity": "1"
         },
         {
-          "id": 2,
-          "dish-quantity": "2"
+          "id": 10,
+          "dish-quantity": "1"
+        },
+        {
+          "id": 6,
+          "dish-quantity": "3"
         }
       ],
       "orders": [
         {
-          "id": 16,
+          "id": 0,
+          "dish-quantity": "1"
+        },
+        {
+          "id": 2,
           "dish-quantity": "2"
         },
         {
           "id": 5,
-          "dish-quantity": "15"
+          "dish-quantity": "11"
         }
       ]
     }
@@ -227,22 +235,56 @@
     "bookings": [
       {
         "date": "2023-11-14",
+        "timeSlots": []
+      },
+      {
+        "date": "2023-11-15",
+        "timeSlots": []
+      },
+      {
+        "date": "2023-11-08",
+        "timeSlots": []
+      },
+      {
+        "date": "2023-11-22",
         "timeSlots": [
           {
-            "slotTime": "18:00",
-            "guest": "4",
-            "occasion": "Birthday",
+            "slotTime": "19:00",
+            "guest": "3",
+            "occasion": "Anniversary",
             "email": "alexrocks@email.com"
           }
         ]
       },
       {
-        "date": "2023-11-15",
+        "date": "2023-11-26",
+        "timeSlots": [
+          {
+            "slotTime": "21:00",
+            "guest": "3",
+            "occasion": "Anniversary",
+            "email": "alexrocks@email.com"
+          }
+        ]
+      },
+      {
+        "date": "2023-11-18",
+        "timeSlots": [
+          {
+            "slotTime": "20:00",
+            "guest": "3",
+            "occasion": "Anniversary",
+            "email": "alexrocks@email.com"
+          }
+        ]
+      },
+      {
+        "date": "2023-11-17",
         "timeSlots": [
           {
             "slotTime": "16:00",
             "guest": "1",
-            "occasion": "Birthday",
+            "occasion": "Anniversary",
             "email": "alexrocks@email.com"
           }
         ]

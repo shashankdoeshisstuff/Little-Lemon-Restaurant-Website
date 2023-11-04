@@ -1,0 +1,46 @@
+/* action complete */
+.order-action-complete{
+    position: relative;
+    max-width: 480px;
+    height: 380px;
+    background: var(--greyColor);
+    border-radius: 16px;
+    display: grid;
+    grid-template-rows: auto auto 60px;
+  }
+  .order-action-complete-icon{
+    font-size: 120px;
+    color: var(--primaryColor);
+  }
+  .order-action-complete-icon-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+  }
+  
+  .order-action-complete-text-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .lead-order-action-complete-text{
+    font-family: var(--karla);
+    font-size: 30px;
+    font-weight: 500;
+  }
+  .order-action-btn-box{
+    width: 100%;
+  }
+  .order-action-complete-link{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .order-action-complete-text-box-para{
+    text-align: center;
+  }

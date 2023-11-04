@@ -1,112 +1,69 @@
 .profile-action-box {
+    background: var(--greyColor);
+    border-radius: 16px;
     display: grid;
     grid-template-rows: auto auto;
-    gap: 20px;
 }
 .profile-action {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
-    gap: 10px;
+    height: 80px;
+    border-radius: 16px 16px 0 0 ;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .profile-action-btn-active{
     border: none;
-    border-radius: 16px;
-    background: var(--primaryColor);
-    color: white;
-    width: 380px;
-    height: 50px;
+    background: transparent;
+    color: var(--primaryColor);
     font-family: var(--karla);
     font-weight: bold;
     font-size: 15pt;
     transition: .2s ease;
 }
 .profile-action-btn{
+    background:var(--primaryColor);
+    color: white;
     border: none;
-    border-radius: 16px;
-    background: var(--greyColor);
-    color: var(--primaryColor);
-    width: 300px;
-    height: 50px;
     font-family: var(--karla);
     font-weight: bold;
     font-size: 15pt;
     transition: .2s ease;
 }
 .profile-action-btn:hover{
-    background: darkgray;
-    transition: .2s ease;
-}
-
-/* cart style */
-.view-render {
-    display: grid;
-    gap: 20px;
-}
-
-.cart-item {
-    background: var(--greyColor);
-    padding: 20px;
-    border-radius: 16px;
-    display: grid;
-    grid-template-columns: 180px auto;
-    gap: 20px;
-}
-
-.cart-content {
-    display: grid;
-    grid-template-rows: auto auto;
-}
-
-.cart-details {
-    display: grid;
-    grid-template-columns: auto 120px 120px;
-    gap: 40px;
-    width: 100%;
-}
-
-.cart-item-qty {
-    font-family: var(--karla);
-    color: var(--primaryColor);
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.cart-image {
-    object-fit: cover;
-    width: 180px;
-    height: 140px;
-    border-radius: 16px;
-}
-
-.cart-btn {
-    font-family: var(--karla);
-    font-size: 16px;
-    height: 32px;
-    width: 120px;
-    color: white;
-    background: var(--primaryColor);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: .2s ease;
-}
-.cart-btn:hover{
-    color: var(--primaryColor);
     background: var(--secondaryColor);
+    color: var(--primaryColor);
     transition: .2s ease;
 }
 
-.cart-btn-box {
-    display: flex;
-    gap: 20px;
-    align-self: end;
-    justify-self: end;
+/* for action btn borders */
+.profile-action-btn-cart{
+    border-radius: 16px 0 0 0;
+}
+.profile-action-btn-cart-orders{
+    border-radius: 16px 0 16px 0;
+}
+.profile-action-btn-cart-reservations{
+    border-radius: 16px 0 0 0;
 }
 
-.cart-price-box {
-    justify-self: end;
+.profile-action-btn-orders{
+    border-radius: 16px 0 0 0;
 }
+.profile-action-btn-orders-cart{
+    border-radius: 0 0 0 16px ;
+}
+.profile-action-btn-orders-reservations{
+    border-radius: 0 0 16px 0;
+}
+
+.profile-action-btn-reservations{
+    border-radius: 16px 0 0 0;
+}
+.profile-action-btn-reservations-cart{
+    border-radius: 0 16px 0 0;
+}
+.profile-action-btn-reservations-orders{
+    border-radius: 0 16px 0 16px;
+}
+/* end */

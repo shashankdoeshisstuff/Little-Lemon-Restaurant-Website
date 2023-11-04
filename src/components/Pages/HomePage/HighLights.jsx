@@ -17,10 +17,10 @@ const HighLights = () => {
     <>
     <section className='section'>
         <div className='container grid-container highlights'>
-            <div className='highlightsHead'>
-                <h2 className="mainSubHeading headText grdItGoLeft">This Week's Specials!</h2>
+            <div className='highlights-head'>
+                <h2 >This Week's Specials!</h2>
                 <Link to="/Menu">
-                    <button className="mainBtn grdItGoRight">Online Menu</button>
+                    <button className='highlights-btn'>Order Online</button>
                 </Link>
             </div>
             <div className='menu-list'>

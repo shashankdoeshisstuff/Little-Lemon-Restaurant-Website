@@ -1,34 +1,43 @@
 .active {
-    border-bottom: 2px solid var(--secondaryColor);
-}
-.navbar {
-    position: relative;
+    background: var(--greyColor);
 }
 
-.Navigation menu {
+.header-nav{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu {
+    height: 100%;
     display: grid;
-    grid-template-columns: repeat(6, auto);
-    gap: 20px;
+    grid-template-columns: repeat(5, auto);
 }
 
-.Navigation li {
-    justify-self: end;
-}
-
-.navMenu li {
+.nav-menu li {
+    display: flex;
+    align-items: center;
     list-style-type: none;
-    font-family: var(--karla);
-    font-size: 14pt;
-    font-weight: medium;
 }
 
 .nav-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 20px;
+    text-decoration: none;
+    font-family: var(--karla);
     color: var(--primaryColor);
     text-decoration: none;
     text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 500;
+    transition: .2s ease;
 }
 .nav-item:hover {
-    color: var(--secondaryColor);
+    color: white;
+    background: var(--secondaryColor);
+    transition: .2s ease;
 }
 
 /* disabled */
@@ -41,8 +50,8 @@
 }
 
 /* media Query */
-@media screen and (max-width: 920px) {
-    .Navigation {
+@media screen and (max-width: 780px) {
+    .header-nav {
         display: none;
     }
 
@@ -50,33 +59,43 @@
         display: block;
         color: var(--primaryColor);
         font-size: 42px;
+        padding: 0 20px 0 20px;
+        transition: .2s ease;
     }
-    .navHamburg:hover {
+    .nav-hamburg-close{
+        padding: 10px;
+        font-size: 32px;
+        color: var(--primaryColor);
+    }
+    .nav-hamburg-icon:hover {
         color: var(--secondaryColor);
-        cursor: pointer;
+        transition: .2s ease;
     }
     
-    .hamburgerNav {
-        display: grid;
-        grid-template-rows: 100px auto;
+    .hamburger-nav {
         position: absolute;
         background: white;
         top: 0;
         right: 0;
-        padding: 20px;
         height: 500px;
         width: 200px;
         border-radius: 0 0 0 32px;
-    }
-
-    .hamburgerNav menu {
         display: grid;
-        grid-template-rows: auto;
-        justify-content: start;
+        grid-template-rows: 40px auto;
+        align-items: center;
     }
 
-    .hamburgerNav li {
+    .nav-menu{
         padding: 0;
-        justify-self: start;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 1fr);
+    }
+
+    .nav-item{
+        width: 100%;
+    }
+
+    .login-ham-nav{
+        border-radius: 0 0 0 32px;
     }
 }

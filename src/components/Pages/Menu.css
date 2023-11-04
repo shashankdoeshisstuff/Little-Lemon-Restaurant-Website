@@ -1,7 +1,3 @@
-.menu-main {
-    position: relative;
-}
-
 .menu-top {
     justify-content: center;
     grid-template-columns: 1fr 1fr;
@@ -12,12 +8,8 @@
     margin-bottom: 40px;
 }
 
-.menu-section {
-    justify-content: center;
-}
-
 .menuPart {
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 20px;
 }
 

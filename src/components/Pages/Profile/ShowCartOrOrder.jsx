@@ -1,61 +1,64 @@
+import './ProfileCard.css'
 import React, { useContext } from 'react'
 import { DataContext, SetDataContext } from '../../../data/DataContext';
 
 const ShowCartOrOrder = ({viewOption, handleProfileOrder}) => {
-    const { menu, reservations } = useContext(DataContext)
+    const { menu } = useContext(DataContext)
     const { HandleRemoveItemFormCartOrOrder, ReturnedProfile } = useContext(SetDataContext)
 
     const renderCart = (item, matchingDish) => {
         return (
-            <div key={matchingDish['id']} className='cart-item'>
+            <div key={matchingDish['id']} className='profile-item-card'>
+                <div>
+                    <img className='profile-item-card-image' 
+                    src={matchingDish["dish-image"]} 
+                    alt="error" />
+                </div>
+                <div className='profile-item-card-container'>
+                    <div className='profile-item-card-detail-box'>
                         <div>
-                            <img className='cart-image' 
-                            src={matchingDish["dish-image"]} 
-                            alt="error" />
+                            <span className='cardTitle'>
+                                {matchingDish["dish-name"]}
+                            </span>
                         </div>
-                        <div className='cart-content'>
-                            <div className='cart-details'>
-                                <div>
-                                    <span className='cardTitle'>
-                                        {matchingDish["dish-name"]}
-                                    </span>
-                                </div>
-                                <div>
-                                    <span className='cart-item-qty'> Qty. {item["dish-quantity"]}</span>
-                                </div>
-                                <div className='cart-price-box'>
-                                    <span className='costText DishCost'>
-                                        $ {
-                                            (parseFloat(matchingDish["dish-price"]) 
-                                            * parseFloat(item["dish-quantity"])).toFixed(2)
-                                        }
-                                    </span>
-                                </div>
-                            </div>
-                            <div className='cart-btn-box'>
-                                {
-                                    viewOption === "cart" ? (
-                                        <>
-                                        <button className='cart-btn'
-                                        onClick={() => {
-                                            handleProfileOrder(matchingDish['id'], item['dish-quantity']);
-                                        }}
-                                        >Order</button>
-                                        <button className='cart-btn'
-                                        onClick={() => HandleRemoveItemFormCartOrOrder(item['id'], viewOption)}
-                                        >Remove</button>
-                                        </>
-                                    ) : (
-                                        <>
-                                        <button className='cart-btn'
-                                        onClick={() => HandleRemoveItemFormCartOrOrder(item['id'], viewOption)}
-                                        >Cancel</button>
-                                        </>
-                                    )
+                        <div>
+                            <span className='profile-item-card-qty'> Qty. {item["dish-quantity"]}</span>
+                        </div>
+                        <div className='cart-price-box'>
+                            <span className='costText DishCost'>
+                                $ {
+                                    (parseFloat(matchingDish["dish-price"]) 
+                                    * parseFloat(item["dish-quantity"])).toFixed(2)
                                 }
-                            </div>
+                            </span>
                         </div>
                     </div>
+                    <div className={`profile-item-card-btn-box profile-item-card-btn-box-${
+                        viewOption !== 'cart' ? 'single-btn' : 'double-btn' 
+                    }`}>
+                        {
+                            viewOption === "cart" ? (
+                                <>
+                                <button className='profile-item-card-btn profile-item-card-btn-order'
+                                onClick={() => {
+                                    handleProfileOrder(matchingDish['id'], item['dish-quantity']);
+                                }}
+                                >Order</button>
+                                <button className='profile-item-card-btn profile-item-card-btn-remove'
+                                onClick={() => HandleRemoveItemFormCartOrOrder(item['id'], viewOption)}
+                                >Remove</button>
+                                </>
+                            ) : (
+                                <>
+                                <button className='profile-item-card-btn profile-item-card-btn-cancel'
+                                onClick={() => HandleRemoveItemFormCartOrOrder(item['id'], viewOption)}
+                                >Cancel</button>
+                                </>
+                            )
+                        }
+                    </div>
+                </div>
+            </div>
         )
     }
     
@@ -73,7 +76,7 @@ const ShowCartOrOrder = ({viewOption, handleProfileOrder}) => {
     }
 
     return (
-        <div  className='view-render'>
+        <div  className='profile-item-card-list'>
             {renderView()}
         </div>
     )

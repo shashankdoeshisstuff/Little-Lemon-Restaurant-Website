@@ -10,16 +10,16 @@ const AboutUs = () => {
     const aboutArticle = (Image, BoldText, Para, ClassName) => {
         return (
             <section className='section'>
-        <div className='container'>
-            <img className={`page-main-image ${ClassName}`} src={Image} alt="error" />
-            <div>
-                <p>
-                    <span className='bigBold'>{BoldText}</span>
-                    {Para}
-                </p>
-            </div>
-        </div>
-    </section>
+                <div className='container'>
+                    <img className={`page-main-image ${ClassName}`} src={Image} alt="error" />
+                    <div>
+                        <p>
+                            <span className='bigBold'>{BoldText}</span>
+                            {Para}
+                        </p>
+                    </div>
+                </div>
+            </section>
         )
     }
 
@@ -61,10 +61,13 @@ const AboutUs = () => {
         heading={top_section_heading}
         sub_text={top_section_text}
         image={top_section_image}
-        type_for_sub_text={type_for_sub_text}
+        image_position={top_section_image_position}
+        type_for_sub_text={top_section_type_for_sub_text}
     />
-    {aboutArticle(aboutUsImage2, "At", aboutArticlePara.FirstPara, "aboutSecondImage")}
-    {aboutArticle(aboutUsImage3, "In", aboutArticlePara.SecondPara, "aboutThirdImage")}
+    <section className='aboutus-para'> 
+        {aboutArticle(aboutUsImage2, "At", aboutArticlePara.FirstPara, "aboutFirstImage")}
+        {aboutArticle(aboutUsImage3, "In", aboutArticlePara.SecondPara, "aboutSecondImage")}
+    </section>
     
     <section className='section'>
         <div className='container grid-container'>
@@ -76,9 +79,7 @@ const AboutUs = () => {
                     border: "0", 
                     borderRadius: "16px"
                 }} 
-                allowfullscreen="" 
                 loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade"
             >
             </iframe>
         </div>
@@ -122,4 +123,5 @@ const top_section_heading = 'Discover Our Mediterranean Journey';
 const top_section_text = `Where Flavors Meet Tradition, 
 and Every Meal Tells a Story.`;
 const top_section_image = aboutUsMainImage;
-const type_for_sub_text = 'h3';
+const top_section_image_position = 'left';
+const top_section_type_for_sub_text = 'h3';
