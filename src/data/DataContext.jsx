@@ -4,8 +4,10 @@ import {React, createContext, useContext, useEffect, useState} from 'react'
 export const DataContext = createContext();
 export const SetDataContext = createContext();
 
+
+
 const getData = (type, setType) => {
-  axios.get(`http://localhost:3000/${type}`)
+  axios.get(`https://little-lemon-restaurant-database.onrender.com/${type}`)
   .then(response => {
     setType(response.data);
   })
@@ -50,7 +52,7 @@ export const SetDataProvider = (props) => {
   const id = 1;
   
   const HandleUpdateProfile = (updatedProfile, triggerFunc) => {
-    axios.put(`http://localhost:3000/login-profiles/${id}`, updatedProfile)
+    axios.put(`https://little-lemon-restaurant-database.onrender.com/login-profiles/${id}`, updatedProfile)
               .then(response => {
                 triggerFunc();
               })
@@ -58,7 +60,7 @@ export const SetDataProvider = (props) => {
   }
 
   const HandleUpdateReservations = (updatedReservation) => {
-    axios.put(`http://localhost:3000/reservations`, updatedReservation)
+    axios.put(`https://little-lemon-restaurant-database.onrender.com/reservations`, updatedReservation)
               .then(response => {
                 updateReservationContext();
               })
