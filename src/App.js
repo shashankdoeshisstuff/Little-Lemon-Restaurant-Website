@@ -3,7 +3,7 @@ import Header from './components/Global/Header';
 import Footer from './components/Global/Footer';
 import Main from "./components/Global/Main";
 import { DataProvider, SetDataProvider } from './data/DataContext';
-import React, { useContext } from 'react';
+import React from 'react';
 
 const MainApp = () => {
 

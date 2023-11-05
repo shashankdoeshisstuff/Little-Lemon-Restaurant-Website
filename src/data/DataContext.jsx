@@ -58,11 +58,9 @@ export const SetDataProvider = (props) => {
   }
 
   const HandleUpdateReservations = (updatedReservation) => {
-    console.log(updatedReservation)
     axios.put(`http://localhost:3000/reservations`, updatedReservation)
               .then(response => {
                 updateReservationContext();
-                console.log('reservation updated')
               })
               .catch(error => console.log(error));
   }
